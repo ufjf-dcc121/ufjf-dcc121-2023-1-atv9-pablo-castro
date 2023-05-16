@@ -29,6 +29,11 @@
         function aoEnviar(evento){
         evento.preventDefault()
         console.log("Hello, form!")
+        const nome = form.nome.value
+        const sobrenome = form.sobrenome.value
+        const idade = form.idade.valueAsNumber
+        const nomeCompleto = `${nome} ${sobrenome}, ${idade} anos`
+        console.log(nomeCompleto)
         }
     </script>
 </body>
