@@ -70,18 +70,18 @@
             form.reset()
             form.nome.focus()
             function adicionaPessoa(nome, sobrenome, idade){
-                const li = document.createElement('li')
-                const divPessoa = document.createElement('div')
+                const li = document.createElement("li")
+                const divPessoa = document.createElement("div")
                 divPessoa.classList.add("pessoa")
 
-                const spanNome = document.createElement ('div')
-                spanNome.classList.add('nome')
+                const spanNome = document.createElement ("div")
+                spanNome.classList.add("nome")
                 spanNome.textContent = sobrenome
                 divPessoa.appendChild(spanNome)
 
 
-                const spanIdade = document.createElement('div')
-                spanIdade.classList.add('idade')
+                const spanIdade = document.createElement("div")
+                spanIdade.classList.add("idade")
                 spanIdade.textCIbtebt = idade
                 divPessoa.appendChild(spanIdade)
 
