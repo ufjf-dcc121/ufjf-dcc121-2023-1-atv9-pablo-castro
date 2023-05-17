@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 9: Forms</title>
     <style>
-        p>span{
-            color: greenyellow;
+        .pessoa> div{
+            color: darkgreen;
+            display: inline;
+        }
+
+        div.sobrenome{
+            color: darkblue;
+        }
+
+        .sobrenome::before{
+            content: ' ';
+        }
+
+        .pessoa>.idade {
+            color: red;
+
+        }
+
+        .idde::before{
+            content: ' ';
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Semana 9: Forms</h1>
@@ -20,11 +40,13 @@
             <input placeholder="Nome" type="text" name="nome">
             <input placeholder="Sobrenome" type="text" name="sobrenome">
             <input placeholder="Idade" type="number" name="idade">
-            <input  type="submit">
-             <input type="reset">
+            <input type="submit">
+            <input type="reset">
         </form>
 
         <p></p>
+        <h2>Visitas Passadas:</h2>
+        <ol></ol>
     </main>
     <footer>
 
@@ -32,21 +54,47 @@
     <script>
         const form = document.querySelector("form")
         form.addEventListener("submit", aoEnviar)
-        const pNome = document.querySelector("p");
+        const pNome = document.querySelector("p")
+        const ol = document.querySelector("ol")
 
-        function aoEnviar(evento){
-        evento.preventDefault()
-        console.log("Hello, form!")
-        const nome = form.nome.value
-        const sobrenome = form.sobrenome.value
-        const idade = form.idade.valueAsNumber
-        const nomeCompleto = `${nome} ${sobrenome}, ${idade} anos`
-        console.log(nomeCompleto)
-        pNome.innerHTML = `Olá <span> ${nomeCompleto}</span>!`
+        function aoEnviar(evento) {
+            evento.preventDefault()
+            console.log("Hello, form!")
+            const nome = form.nome.value
+            const sobrenome = form.sobrenome.value
+            const idade = form.idade.valueAsNumber
+            const nomeCompleto = `${nome} ${sobrenome}, ${idade} anos`
+            console.log(nomeCompleto)
+            pNome.innerHTML = `Olá <span> ${nomeCompleto}</span>!`
 
-        form.reset()
-        form.nome.focus()
+            form.reset()
+            form.nome.focus()
+            function adicionaPessoa(nome, sobrenome, idade){
+                const li = document.createElement('li')
+                const divPessoa = document.createElement('div')
+                divPessoa.classList.add("pessoa")
+
+                const spanNome = document.createElement ('div')
+                spanNome.classList.add('nome')
+                spanNome.textContent = sobrenome
+                divPessoa.appendChild(spanNome)
+
+
+                const spanIdade = document.createElement('div')
+                spanIdade.classList.add('idade')
+                spanIdade.textCIbtebt = idade
+                divPessoa.appendChild(spanIdade)
+
+                li.appendChild(divPessoa)
+                ol.appendChild(li)
+            }
+
+            const li = document.createElement("li")
+            li.textContent = nomeCompleto
+            console.log(li)
+            ol.appendChild(li)
         }
     </script>
 </body>
+
 </html>
